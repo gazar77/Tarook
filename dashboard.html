@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Pro - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="WhatsApp Image 2025-12-23 at 12.36.56 AM.jpeg">
+</head>
+<body>
+
+  <div id="dashboardPage" class="page-container active">
+    <div class="top-bar"></div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="logo">
+          <img src="WhatsApp Image 2025-12-23 at 12.36.56 AM.jpeg"
+     alt="Market Pro Logo"
+     class="logoss">
+
+          <span class="red">Market</span>
+          <span>Pro</span>
+        </div>
+
+        <div class="menu-title">Menu</div>
+        <div>
+          <div class="menu-item active" onclick="window.location.href='dashboard.html'">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                 <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 17h-2v-6h2zm0-8h-2V7h2z"/>
+            </svg>
+            <span>Dashboard</span>
+          </div>
+          <div class="menu-item" onclick="window.location.href='products.html'">
+               <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 6H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10zm-8-7l-5 5h10l-5-5z"/>
+            </svg>
+            <span>ADD Products</span>
+          </div>
+           <div class="menu-item" id="menuCommodities"onclick="window.location.href='Home.html'">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5L4.24 7 12 3.5 19.76 7 12 9.5zm-8 2.5v7l8 5 8-5v-7l-8 5-8-5z"/>
+            </svg>
+            <span>Commoditis</span>
+          </div>
+          <div class="menu-item" onclick="window.location.href='vendors.html'">
+           <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M16 6V4c0-1.1-.9-2-2-2H6C4.9 2 4 2.9 4 4v2H2v2h2v10h16V8h2V6h-2zm-8-2h6v2h-6V4zm8 14H8v-8h8v8zm-6-6h4v4h-4v-4z"/>
+           </svg>
+            <span>Vendors</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="top-row">
+          <div class="search-area">
+            <div class="dashboard-welcome">
+              <h2 id="welcomeMessage">Welcome back! 👋</h2>
+              <p id="dashboardSubtitle">Here's what's happening with your store today</p>
+            </div>
+          </div>
+
+          <div class="user-card">
+            <div class="user-header">
+              <div class="user-info">
+                <div class="avatar" id="userAvatar">J</div>
+                <div class="user-text">
+                  <div class="name" id="userName">Jane Doe</div>
+                  <div class="email" id="userEmail">jane@marketpro.com</div>
+                </div>
+              </div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                       xmlns="http://www.w3.org/2000/svg">
+                   <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5z"/>
+                 </svg>
+            </div>
+
+            <div class="user-links">
+              <div class="user-link" id="myProfileBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                       xmlns="http://www.w3.org/2000/svg">
+                   <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5z"/>
+                 </svg>
+                <span>My Profile</span>
+              </div>
+              <div class="user-link" id="logoutBtn">
+                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+     xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 13v-2H7V8l-5 4 5 4v-3h9z"/>
+  <path d="M20 3h-8c-1.1 0-2 .9-2 2v4h2V5h8v14h-8v-4h-2v4c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+</svg>
+                <span>Logout</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="dashboard-stats">
+          <div class="stat-card-dash blue">
+            <div class="stat-icon">📦</div>
+            <div class="stat-content">
+              <div class="stat-number" id="totalProducts">0</div>
+              <div class="stat-label">Total Products</div>
+            </div>
+          </div>
+
+          <div class="stat-card-dash green">
+            <div class="stat-icon">❤️</div>
+            <div class="stat-content">
+              <div class="stat-number" id="totalFavorites">0</div>
+              <div class="stat-label">Total Favorites</div>
+            </div>
+          </div>
+
+          <div class="stat-card-dash purple">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-content">
+              <div class="stat-number" id="topCategory">-</div>
+              <div class="stat-label">Top Category</div>
+            </div>
+          </div>
+
+          <div class="stat-card-dash orange">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-content">
+              <div class="stat-number" id="avgPrice">0 EGP</div>
+              <div class="stat-label">Avg. Price</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="dashboard-actions">
+          <h3 class="section-title">Quick Actions</h3>
+          <div class="action-buttons">
+            <button class="action-btn" onclick="window.location.href='products.html'">
+              <span class="action-icon">➕</span>
+              <span>Add New Product</span>
+            </button>
+            <button class="action-btn" onclick="window.location.href='products.html'">
+              <span class="action-icon">📋</span>
+              <span>View All Products</span>
+            </button>
+            <button class="action-btn" onclick="window.location.href='vendors.html'">
+              <span class="action-icon">👥</span>
+              <span>Compare Vendors</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Recent Products -->
+        <div class="dashboard-recent">
+          <div class="section-header">
+            <h3 class="section-title">Recent Products</h3>
+            <button class="view-all-btn" onclick="window.location.href='products.html'">View All →</button>
+          </div>
+          <div class="recent-products-grid" id="recentProductsGrid">
+            <!-- Products will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Category Breakdown -->
+        <div class="dashboard-categories">
+          <h3 class="section-title">Products by Category</h3>
+          <div class="category-breakdown" id="categoryBreakdown">
+            <!-- Category bars will be loaded here -->
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Profile Modal -->
+  <div id="profileOverlay" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">My profile</div>
+        <button class="modal-close" onclick="closeProfileModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div class="avatar" id="profileAvatar">U</div>
+          <div>
+            <div style="font-weight:600; color:#2c3e50;" id="profileName">User name</div>
+            <div style="font-size:12px; color:#7f8c8d;" id="profileEmail">user@mail.com</div>
+          </div>
+        </div>
+        <div style="font-size:13px; color:#7f8c8d;">
+          This is a simple preview of your account information stored on this device.
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn primary" onclick="closeProfileModal()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Pro - Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+   <link rel="icon" type="image/png" href="WhatsApp Image 2025-12-23 at 12.36.56 AM.jpeg">
+</head>
+<body>
+
+  <div id="adminDashboardPage" class="page-container active">
+    <div class="top-bar"></div>
+
+    <div class="layout">
+      <aside class="sidebar admin-sidebar">
+        <div class="logo">
+           <img src="WhatsApp Image 2025-12-23 at 12.36.56 AM.jpeg"
+     alt="Market Pro Logo"
+     class="logoss">
+          <span class="red">Market</span>
+          <span>Pro</span>
+          <span class="admin-badge">ADMIN</span>
+        </div>
+
+        <div class="menu-title">ADMIN PANEL</div>
+        <div>
+          <div class="menu-item active" onclick="window.location.href='admin-dashboard.html'">
+            <div class="icon-box"></div>
+            <span>Dashboard</span>
+          </div>
+          <div class="menu-item" onclick="showAdminSection('vendors')">
+            <div class="icon-box"></div>
+            <span>Manage Vendors</span>
+          </div>
+          <div class="menu-item" onclick="showAdminSection('products')">
+            <div class="icon-box"></div>
+            <span>Manage Products</span>
+          </div>
+          <div class="menu-item" onclick="showAdminSection('categories')">
+            <div class="icon-box"></div>
+            <span>Categories</span>
+          </div>
+          <div class="menu-item" onclick="confirmExit()">
+            <div class="icon-box"></div>
+            <span>Exit Admin</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="top-row">
+          <div class="search-area">
+            <div class="dashboard-welcome">
+              <h2 id="adminWelcomeMessage">Admin Dashboard 👑</h2>
+              <p id="adminSubtitle">Manage and monitor your marketplace</p>
+            </div>
+          </div>
+
+          <div class="user-card">
+            <div class="user-header">
+              <div class="user-info">
+                <div class="avatar admin-avatar" id="adminAvatar">A</div>
+                <div class="user-text">
+                  <div class="name" id="adminName">Administrator</div>
+                  <div class="email" id="adminEmail">admin@marketpro.com</div>
+                </div>
+              </div>
+              <div class="arrow"></div>
+            </div>
+
+            <div class="user-links">
+              <div class="user-link" id="adminProfileBtn" onclick="openProfileModal()">
+                <div class="user-link-icon"></div>
+                <span>My Profile</span>
+              </div>
+              <div class="user-link" id="adminLogoutBtn" onclick="confirmExit()">
+                <div class="user-link-icon"></div>
+                <span>Logout</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Admin Statistics Cards -->
+        <div class="dashboard-stats">
+          <div class="stat-card-dash blue">
+            <div class="stat-icon">👥</div>
+            <div class="stat-content">
+              <div class="stat-number" id="adminTotalVendors">0</div>
+              <div class="stat-label">Total Vendors</div>
+            </div>
+          </div>
+
+          <div class="stat-card-dash green">
+            <div class="stat-icon">📦</div>
+            <div class="stat-content">
+              <div class="stat-number" id="adminTotalProducts">0</div>
+              <div class="stat-label">Total Products</div>
+            </div>
+          </div>
+
+          <div class="stat-card-dash purple">
+            <div class="stat-icon">🛒</div>
+            <div class="stat-content">
+              <div class="stat-number" id="adminTotalCustomers">0</div>
+              <div class="stat-label">Total Users</div>
+            </div>
+          </div>
+
+          <div class="stat-card-dash orange">
+            <div class="stat-icon">📂</div>
+            <div class="stat-content">
+              <div class="stat-number" id="adminTotalCategories">3</div>
+              <div class="stat-label">Categories</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="dashboard-actions">
+          <h3 class="section-title">Quick Actions</h3>
+          <div class="action-buttons">
+            <button class="action-btn admin-btn" onclick="showAdminSection('vendors')">
+              <span class="action-icon">👥</span>
+              <span>View All Vendors</span>
+            </button>
+            <button class="action-btn admin-btn" onclick="showAdminSection('products')">
+              <span class="action-icon">📦</span>
+              <span>Manage Products</span>
+            </button>
+            <button class="action-btn admin-btn" onclick="clearAllData()">
+              <span class="action-icon">🗑️</span>
+              <span>Clear All Data</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Vendors Management Section -->
+        <div id="vendorsSection" class="admin-section" style="display:none;">
+          <div class="section-header">
+            <h3 class="section-title">All Vendors</h3>
+            <button class="view-all-btn" onclick="showAdminSection('overview')">← Back to Overview</button>
+          </div>
+          <div id="adminVendorsList" class="admin-list">
+            <!-- Vendors will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Products Management Section -->
+        <div id="productsSection" class="admin-section" style="display:none;">
+          <div class="section-header">
+            <h3 class="section-title">All Products</h3>
+            <button class="view-all-btn" onclick="showAdminSection('overview')">← Back to Overview</button>
+          </div>
+          <div id="adminProductsList" class="admin-products-grid">
+            <!-- Products will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Categories Management Section -->
+        <div id="categoriesSection" class="admin-section" style="display:none;">
+          <div class="section-header">
+            <h3 class="section-title">Manage Categories</h3>
+            <button class="view-all-btn" onclick="showAdminSection('overview')">← Back to Overview</button>
+          </div>
+          <div class="category-breakdown" id="adminCategoriesList">
+            <!-- Categories will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div id="overviewSection" class="admin-section">
+          <div class="dashboard-recent">
+            <h3 class="section-title">Recent Products</h3>
+            <div class="recent-products-grid" id="adminRecentProducts">
+              <!-- Recent products will be loaded here -->
+            </div>
+          </div>
+
+          <!-- Top Vendors -->
+          <div class="dashboard-categories">
+            <h3 class="section-title">Top Vendors by Products</h3>
+            <div class="category-breakdown" id="adminTopVendors">
+              <!-- Top vendors will be loaded here -->
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Profile Modal -->
+  <div id="profileOverlay" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">Admin Profile</div>
+        <button class="modal-close" onclick="closeProfileModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div class="avatar admin-avatar" id="profileAvatar">A</div>
+          <div>
+            <div style="font-weight:600; color:#2c3e50;" id="profileName">Administrator</div>
+            <div style="font-size:12px; color:#7f8c8d;" id="profileEmail">admin@marketpro.com</div>
+          </div>
+        </div>
+        <div style="font-size:13px; color:#7f8c8d;">
+          You have full access to manage vendors, products, and platform settings.
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn primary" onclick="closeProfileModal()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Pro - Products</title>
+  <link rel="stylesheet" href="style.css">
+   <link rel="icon" type="image/png" href="WhatsApp Image 2025-12-23 at 12.36.56 AM.jpeg">
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <div id="productsPage" class="page-container active">
+    <div class="top-bar"></div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="logo">
+           <img src="WhatsApp Image 2025-12-23 at 12.36.56 AM.jpeg"
+     alt="Market Pro Logo"
+     class="logoss">
+          <span class="red">Market</span>
+          <span>Pro</span>
+        </div>
+
+        <div class="menu-title">Home</div>
+        <div>
+            <div class="menu-item" onclick="window.location.href='dashboard.html'">
+             <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                 <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 17h-2v-6h2zm0-8h-2V7h2z"/>
+            </svg>
+            <span>Dashboard</span>
+          </div>
+          <div class="menu-item active" id="menuProducts">
+             <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 6H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10zm-8-7l-5 5h10l-5-5z"/>
+            </svg>
+            <span>ADD Products</span>
+          </div>
+          <div class="menu-item" onclick="window.location.href='home.html'">
+             <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5L4.24 7 12 3.5 19.76 7 12 9.5zm-8 2.5v7l8 5 8-5v-7l-8 5-8-5z"/>
+            </svg>
+            <span>Commoditis</span>
+          </div>
+          <div class="menu-item" onclick="window.location.href='vendors.html'">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M16 6V4c0-1.1-.9-2-2-2H6C4.9 2 4 2.9 4 4v2H2v2h2v10h16V8h2V6h-2zm-8-2h6v2h-6V4zm8 14H8v-8h8v8zm-6-6h4v4h-4v-4z"/>
+           </svg>
+            <span>Vendors</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="top-row">
+          <div class="search-area">
+            <div class="search-box">
+               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="ss"
+                  xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 2a8 8 0 1 0 5.293 14.293l4.707 4.707
+                        1.414-1.414-4.707-4.707A8 8 0 0 0 10 2zm0 2
+                        a6 6 0 1 1 0 12a6 6 0 0 1 0-12z"/>
+              </svg>
+              <input type="text" class="search-input" id="searchInput" placeholder="Search Best Prices" />
+            </div>
+            
+            <!-- 🔔 Price Alerts Button -->
+            <button class="alarm-btn" id="alarmBtn" onclick="openAlarmModal()">
+              <span class="alarm-icon">🔔</span>
+              <span class="alarm-text">Price Alerts</span>
+              <span class="alarm-badge" id="alarmBadge" style="display:none;">0</span>
+            </button>
+          </div>
+
+          <div class="user-card">
+            <div class="user-header">
+              <div class="user-info">
+                <div class="avatar" id="userAvatar">J</div>
+                <div class="user-text">
+                  <div class="name" id="userName">Jane Doe</div>
+                  <div class="email" id="userEmail">jane@marketpro.com</div>
+                </div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                       xmlns="http://www.w3.org/2000/svg">
+                   <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5z"/>
+                 </svg>
+            </div>
+
+            <div class="user-links">
+              <div class="user-link" id="myProfileBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                       xmlns="http://www.w3.org/2000/svg">
+                   <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5z"/>
+                 </svg>
+                <span>My Profile</span>
+              </div>
+              <div class="user-link" onclick="toggleDarkMode()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+     xmlns="http://www.w3.org/2000/svg">
+  <path d="M21 12.79A9 9 0 0 1 11.21 3
+           a7 7 0 1 0 9.79 9.79z"/>
+</svg>
+                <span>Dark Mode</span>
+              </div>
+              <div class="user-link" id="logoutBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+     xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 13v-2H7V8l-5 4 5 4v-3h9z"/>
+  <path d="M20 3h-8c-1.1 0-2 .9-2 2v4h2V5h8v14h-8v-4h-2v4c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+</svg>
+                <span>Logout</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- عنوان + فلتر الأقسام -->
+        <div class="products-header">
+          <div class="section-title">Products</div>
+
+          <div style="display:flex; align-items:center; gap:10px; position:relative;">
+            <button class="add-product-btn small-category-btn" id="categoryFilterBtn">
+              All categories ▼
+            </button>
+
+            <!-- القائمة المنسدلة -->
+            <div class="category-dropdown" id="categoryDropdown">
+              <div class="category-option" data-value="">All categories</div>
+              <div class="category-option" data-value="grains">Grains (الحبوب)</div>
+              <div class="category-option" data-value="poultry">Poultry (الدواجن)</div>
+              <div class="category-option" data-value="vegetables">Vegetables (الخضراوات)</div>
+            </div>
+
+            <button class="add-product-btn" id="addProductBtn" style="display:none;">
+              <span>+</span> Add Product
+            </button>
+          </div>
+        </div>
+
+        <div class="products-grid" id="productsContainer">
+          <!-- المنتجات هتظهر هنا -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <div class="scroll-top" onclick="scrollToTop()">
+    ⬆️
+  </div>
+
+  <!-- FAB للـ Vendors -->
+  <div class="fab" onclick="window.location.href='vendors.html'" title="Compare Vendors">
+    👥
+  </div>
+
+  <!-- Add Product Modal -->
+  <div id="addProductOverlay" class="modal-overlay">
+    <div class="modal modal-large">
+      <div class="modal-header">
+        <div class="modal-title">Add New Product</div>
+        <button class="modal-close" onclick="closeAddProductModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="addProductForm">
+          <label>Product Name</label>
+          <input type="text" id="productName" placeholder="e.g. Rice 1kg" required />
+
+          <label>Location</label>
+          <input type="text" id="productLocation" placeholder="e.g. Cairo, Nasr City" required />
+
+          <label>Price (EGP)</label>
+          <input type="number" id="productPrice" placeholder="e.g. 50" required />
+
+          <label>Category</label>
+          <select id="productCategory" required>
+            <option value="">Choose category</option>
+            <option value="grains">Grains (الحبوب)</option>
+            <option value="poultry">Poultry (الدواجن)</option>
+            <option value="vegetables">Vegetables (الخضراوات)</option>
+          </select>
+
+          <label>Product Image <span style="color:#e74c3c;">*</span></label>
+          <input type="file" id="productImage" accept="image/*" required />
+
+          <div class="modal-actions" style="margin-top:20px;">
+            <button type="button" class="modal-btn secondary" onclick="closeAddProductModal()">Cancel</button>
+            <button type="submit" class="modal-btn primary">Add Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor Profile Modal -->
+  <div id="vendorProfileOverlay" class="modal-overlay">
+    <div class="modal modal-large">
+      <div class="modal-header">
+        <div class="modal-title">Complete Your Vendor Profile</div>
+        <button class="modal-close" onclick="closeVendorProfileModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="vendorProfileForm">
+          <label>Market/Business Name</label>
+          <input type="text" id="marketName" placeholder="e.g. Market Pro Services" required />
+
+          <label>Business Address</label>
+          <input type="text" id="businessAddress" placeholder="e.g. 123 Main St, Cairo" required />
+
+          <label>Phone Number</label>
+          <input type="tel" id="businessPhone" placeholder="e.g. +20 123 456 7890" required />
+
+          <label>Description (Optional)</label>
+          <textarea id="businessDescription" placeholder="Tell us about your market..." rows="4"></textarea>
+
+          <div class="modal-actions" style="margin-top:20px;">
+            <button type="button" class="modal-btn secondary" onclick="closeVendorProfileModal()">Skip for now</button>
+            <button type="submit" class="modal-btn primary">Save Profile</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Modal -->
+  <div id="profileOverlay" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">My profile</div>
+        <button class="modal-close" onclick="closeProfileModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div class="avatar" id="profileAvatar">U</div>
+          <div>
+            <div style="font-weight:600; color:#2c3e50;" id="profileName">User name</div>
+            <div style="font-size:12px; color:#7f8c8d;" id="profileEmail">user@mail.com</div>
+          </div>
+        </div>
+        <div style="font-size:13px; color:#7f8c8d;">
+          This is a simple preview of your account information stored on this device.
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn primary" onclick="closeProfileModal()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔔 Price Alert Modal -->
+  <div id="alarmOverlay" class="modal-overlay">
+    <div class="modal modal-large">
+      <div class="modal-header">
+        <div class="modal-title">🔔 Price Alerts</div>
+        <button class="modal-close" onclick="closeAlarmModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:#7f8c8d; margin-bottom:15px;">
+          Get notified when product prices drop to your target price!
+        </p>
+        
+        <div id="alarmList" class="alarm-list"></div>
+        
+        <div class="add-alarm-form">
+          <h4 style="margin-bottom:10px; color:#2c3e50;">Add New Alert</h4>
+          <select id="alarmProductSelect">
+            <option value="">Select a product...</option>
+          </select>
+          <input type="number" id="alarmTargetPrice" placeholder="Target price (EGP)" min="1" />
+          <button class="modal-btn primary" onclick="addPriceAlert()">
+            Add Alert
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

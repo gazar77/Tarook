@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Pro - Login</title>
+  <link rel="stylesheet" href="style.css">
+   <link rel="icon" type="image/png" href="WhatsApp Image 2025-12-23 at 12.36.56 AM.jpeg">
+</head>
+<body>
+
+  <div id="loginPage" class="page-container active">
+    <div class="page-title">Market Pro</div>
+
+    <div class="page">
+      <div class="logo">
+        <img src="WhatsApp Image 2025-12-23 at 12.36.56 AM.jpeg"
+     alt="Market Pro Logo"
+     class="logoss">
+        <span class="red">Market</span>
+        <span>Pro</span>
+      </div>
+
+      <div class="content">
+        <div class="illustration-container">
+          <div class="person">
+            <div class="person-head">
+              <div class="person-hair"></div>
+              <div class="person-face left"></div>
+              <div class="person-face right"></div>
+              <div class="person-smile"></div>
+            </div>
+            <div class="person-body">
+              <div class="person-collar"></div>
+              <div class="person-arm-left">
+                <div class="person-hand-left"></div>
+              </div>
+              <div class="person-arm-right">
+                <div class="person-hand-right"></div>
+              </div>
+            </div>
+            <div class="person-legs">
+              <div class="person-leg left"></div>
+              <div class="person-leg right"></div>
+              <div class="person-shoe left"></div>
+              <div class="person-shoe right"></div>
+            </div>
+          </div>
+          
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-content">
+              <div class="phone-title">Sign In</div>
+              <div class="phone-subtitle">
+                Lorem ipsum dolor sit amet,<br/>consectetur adipiscing elit.
+              </div>
+              <div class="phone-field"></div>
+              <div class="phone-field"></div>
+              <div class="phone-forgot">forgot password?</div>
+              <div class="phone-btn"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-box">
+          <h1>Login to our app</h1>
+          <p>Enter username and password</p>
+
+          <form id="loginForm">
+            <label for="email">E-mail or Username</label>
+            <input id="email" type="text" placeholder="Enter email or username" autocomplete="username" />
+            <div id="emailError" class="error-message"></div>
+
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Enter password" autocomplete="current-password" />
+            <div id="passwordError" class="error-message"></div>
+
+            <div class="help-text" style="text-align:right; margin-top:-6px; margin-bottom:10px;">
+              <a onclick="openForgotModal()" style="font-size:13px; cursor:pointer;">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn">Log in</button>
+
+            <div class="help-text">
+              Don't have an account?
+              <a href="signup.html">Sign up here</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgotOverlay" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">Reset password</div>
+        <button class="modal-close" onclick="closeForgotModal()">×</button>
+      </div>
+      <div class="modal-body">
+        Enter your e-mail and we will send you a link to reset your password.
+        <input id="forgotEmail" type="email" placeholder="Your e-mail" />
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn secondary" onclick="closeForgotModal()">Cancel</button>
+        <button class="modal-btn primary" onclick="sendReset()">Send link</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
